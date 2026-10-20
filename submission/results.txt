@@ -1,0 +1,123 @@
+==================== Stress Test Results ====================
+Generated : 2026-10-19 20:12:11
+Config    : 7 frames, page size 1000, 3 segments, 4 pages/dir, LRU, seed 42
+Requested : 100 addresses, valid ratio 0.70
+Format    : # [start-end] (seg,dir,page,offset,access) outcome  latency
+-------------------------------------------------------------
+   1 [   0-   1] (5,1,2,26,W)          SEGMENTATION FAULT: Invalid segment 5, max 2  lat=1
+   2 [   1-   4] (1,0,2,954,W)         translated to 6954  [hit, frame 6]  lat=3
+   3 [   4-  18] (0,1,0,749,R)         translated to 4749  [PAGE FAULT -> frame 4]  lat=14
+   4 [  18-  19] (1,1,1,1072,W)        OFFSET FAULT: Invalid offset 1072, max 999 (page size 1000)  lat=1
+   5 [  19-  32] (2,1,0,739,R)         translated to 739  [PAGE FAULT -> frame 0, evicted S1:D0:P0]  lat=13
+   6 [  32-  36] (0,0,1,519,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=4
+   7 [  36-  37] (0,1,1,70,W)          PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=1
+   8 [  37-  51] (1,1,3,384,R)         translated to 1384  [PAGE FAULT -> frame 1, evicted S2:D0:P0]  lat=14
+   9 [  51-  55] (2,1,0,470,W)         translated to 470  [hit, frame 0]  lat=4
+  10 [  55-  60] (1,2,1,289,R)         DIRECTORY FAULT: Invalid page directory 2 for segment 1, max 1  lat=5
+  11 [  60-  72] (2,2,3,214,W)         translated to 2214  [PAGE FAULT -> frame 2, evicted S0:D0:P0]  lat=12
+  12 [  72-  86] (2,0,1,528,W)         translated to 3528  [PAGE FAULT -> frame 3, evicted S1:D1:P0]  lat=14
+  13 [  86-  88] (0,3,3,141,W)         DIRECTORY FAULT: Invalid page directory 3 for segment 0, max 1  lat=2
+  14 [  88-  91] (0,3,3,275,W)         DIRECTORY FAULT: Invalid page directory 3 for segment 0, max 1  lat=3
+  15 [  91-  92] (0,0,5,391,W)         LIMIT VIOLATION: Invalid page 5 in directory 0 of segment 0, max 3 (segment limit 6 pages)  lat=1
+  16 [  92-  94] (0,1,1,436,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=2
+  17 [  94-  97] (0,0,2,539,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=3
+  18 [  97- 111] (1,1,2,108,R)         translated to 5108  [PAGE FAULT -> frame 5, evicted S0:D0:P1]  lat=14
+  19 [ 111- 122] (2,0,0,355,W)         translated to 6355  [PAGE FAULT -> frame 6, evicted S1:D0:P2]  lat=11
+  20 [ 122- 126] (2,1,4,407,R)         LIMIT VIOLATION: Invalid page 4 in directory 1 of segment 2, max 3 (segment limit 12 pages)  lat=4
+  21 [ 126- 130] (0,0,4,800,W)         LIMIT VIOLATION: Invalid page 4 in directory 0 of segment 0, max 3 (segment limit 6 pages)  lat=4
+  22 [ 130- 131] (2,2,3,278,R)         translated to 2278  [hit, frame 2]  lat=1
+  23 [ 131- 134] (0,1,1,487,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=3
+  24 [ 134- 145] (1,1,0,662,W)         translated to 4662  [PAGE FAULT -> frame 4, evicted S0:D1:P0]  lat=11
+  25 [ 145- 148] (2,1,4,846,W)         LIMIT VIOLATION: Invalid page 4 in directory 1 of segment 2, max 3 (segment limit 12 pages)  lat=3
+  26 [ 148- 163] (0,1,1,931,R)         translated to 1931  [PAGE FAULT -> frame 1, evicted S1:D1:P3]  lat=15
+  27 [ 163- 168] (1,0,0,1019,R)        OFFSET FAULT: Invalid offset 1019, max 999 (page size 1000)  lat=5
+  28 [ 168- 169] (1,1,0,822,R)         translated to 4822  [hit, frame 4]  lat=1
+  29 [ 169- 173] (2,4,2,18,R)          DIRECTORY FAULT: Invalid page directory 4 for segment 2, max 2  lat=4
+  30 [ 173- 178] (2,2,0,1007,W)        OFFSET FAULT: Invalid offset 1007, max 999 (page size 1000)  lat=5
+  31 [ 178- 190] (1,1,1,290,W)         translated to 290  [PAGE FAULT -> frame 0, evicted S2:D1:P0]  lat=12
+  32 [ 190- 194] (5,0,2,525,R)         SEGMENTATION FAULT: Invalid segment 5, max 2  lat=4
+  33 [ 194- 199] (1,1,0,704,R)         translated to 4704  [hit, frame 4]  lat=5
+  34 [ 199- 212] (2,2,0,893,R)         translated to 3893  [PAGE FAULT -> frame 3, evicted S2:D0:P1]  lat=13
+  35 [ 212- 225] (2,0,3,350,R)         translated to 5350  [PAGE FAULT -> frame 5, evicted S1:D1:P2]  lat=13
+  36 [ 225- 238] (0,0,0,155,R)         translated to 6155  [PAGE FAULT -> frame 6, evicted S2:D0:P0]  lat=13
+  37 [ 238- 253] (1,0,3,733,R)         translated to 2733  [PAGE FAULT -> frame 2, evicted S2:D2:P3]  lat=15
+  38 [ 253- 267] (1,0,0,775,R)         translated to 1775  [PAGE FAULT -> frame 1, evicted S0:D1:P1]  lat=14
+  39 [ 267- 269] (4,1,3,573,R)         SEGMENTATION FAULT: Invalid segment 4, max 2  lat=2
+  40 [ 269- 281] (1,0,1,676,W)         translated to 676  [PAGE FAULT -> frame 0, evicted S1:D1:P1]  lat=12
+  41 [ 281- 285] (0,0,0,195,R)         translated to 6195  [hit, frame 6]  lat=4
+  42 [ 285- 299] (1,1,2,981,W)         translated to 4981  [PAGE FAULT -> frame 4, evicted S1:D1:P0]  lat=14
+  43 [ 299- 301] (1,1,1,1091,R)        OFFSET FAULT: Invalid offset 1091, max 999 (page size 1000)  lat=2
+  44 [ 301- 315] (1,1,1,263,R)         translated to 3263  [PAGE FAULT -> frame 3, evicted S2:D2:P0]  lat=14
+  45 [ 315- 320] (1,0,3,178,W)         PROTECTION VIOLATION: Cannot write to read-only page 3 (segment 1, directory 0)  lat=5
+  46 [ 320- 334] (1,1,3,142,W)         translated to 5142  [PAGE FAULT -> frame 5, evicted S2:D0:P3]  lat=14
+  47 [ 334- 336] (0,0,0,657,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=2
+  48 [ 336- 349] (2,2,0,761,R)         translated to 2761  [PAGE FAULT -> frame 2, evicted S1:D0:P3]  lat=13
+  49 [ 349- 362] (2,2,2,915,W)         translated to 1915  [PAGE FAULT -> frame 1, evicted S1:D0:P0]  lat=13
+  50 [ 362- 364] (0,0,1,784,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=2
+  51 [ 364- 369] (1,1,4,84,W)          LIMIT VIOLATION: Invalid page 4 in directory 1 of segment 1, max 3 (segment limit 8 pages)  lat=5
+  52 [ 369- 374] (1,1,3,903,R)         translated to 5903  [hit, frame 5]  lat=5
+  53 [ 374- 388] (2,1,0,919,W)         translated to 919  [PAGE FAULT -> frame 0, evicted S1:D0:P1]  lat=14
+  54 [ 388- 391] (1,1,1,663,W)         translated to 3663  [hit, frame 3]  lat=3
+  55 [ 391- 393] (0,0,0,370,R)         translated to 6370  [hit, frame 6]  lat=2
+  56 [ 393- 404] (2,1,1,169,W)         translated to 4169  [PAGE FAULT -> frame 4, evicted S1:D1:P2]  lat=11
+  57 [ 404- 406] (5,2,3,464,W)         SEGMENTATION FAULT: Invalid segment 5, max 2  lat=2
+  58 [ 406- 411] (0,1,2,39,R)          LIMIT VIOLATION: Invalid page 2 in directory 1 of segment 0, max 1 (segment limit 6 pages)  lat=5
+  59 [ 411- 412] (2,2,2,346,W)         translated to 1346  [hit, frame 1]  lat=1
+  60 [ 412- 426] (0,1,1,805,R)         translated to 2805  [PAGE FAULT -> frame 2, evicted S2:D2:P0]  lat=14
+  61 [ 426- 430] (2,3,2,545,R)         DIRECTORY FAULT: Invalid page directory 3 for segment 2, max 2  lat=4
+  62 [ 430- 443] (2,0,0,203,R)         translated to 5203  [PAGE FAULT -> frame 5, evicted S1:D1:P3]  lat=13
+  63 [ 443- 444] (0,0,3,416,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=1
+  64 [ 444- 447] (1,2,0,509,R)         DIRECTORY FAULT: Invalid page directory 2 for segment 1, max 1  lat=3
+  65 [ 447- 451] (5,1,0,912,W)         SEGMENTATION FAULT: Invalid segment 5, max 2  lat=4
+  66 [ 451- 452] (0,0,2,1082,R)        OFFSET FAULT: Invalid offset 1082, max 999 (page size 1000)  lat=1
+  67 [ 452- 465] (1,0,1,224,W)         translated to 224  [PAGE FAULT -> frame 0, evicted S2:D1:P0]  lat=13
+  68 [ 465- 468] (0,0,1,989,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=3
+  69 [ 468- 481] (2,1,2,257,R)         translated to 3257  [PAGE FAULT -> frame 3, evicted S1:D1:P1]  lat=13
+  70 [ 481- 484] (5,2,0,999,R)         SEGMENTATION FAULT: Invalid segment 5, max 2  lat=3
+  71 [ 484- 495] (2,2,1,702,W)         translated to 6702  [PAGE FAULT -> frame 6, evicted S0:D0:P0]  lat=11
+  72 [ 495- 496] (2,1,4,347,W)         LIMIT VIOLATION: Invalid page 4 in directory 1 of segment 2, max 3 (segment limit 12 pages)  lat=1
+  73 [ 496- 500] (0,1,1,799,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=4
+  74 [ 500- 502] (1,3,2,134,W)         DIRECTORY FAULT: Invalid page directory 3 for segment 1, max 1  lat=2
+  75 [ 502- 506] (0,1,0,280,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=4
+  76 [ 506- 511] (2,2,1,721,W)         translated to 6721  [hit, frame 6]  lat=5
+  77 [ 511- 515] (2,2,2,29,R)          translated to 1029  [hit, frame 1]  lat=4
+  78 [ 515- 526] (1,1,0,963,W)         translated to 4963  [PAGE FAULT -> frame 4, evicted S2:D1:P1]  lat=11
+  79 [ 526- 538] (1,1,1,308,W)         translated to 2308  [PAGE FAULT -> frame 2, evicted S0:D1:P1]  lat=12
+  80 [ 538- 550] (1,1,2,991,W)         translated to 5991  [PAGE FAULT -> frame 5, evicted S2:D0:P0]  lat=12
+  81 [ 550- 554] (5,0,1,517,R)         SEGMENTATION FAULT: Invalid segment 5, max 2  lat=4
+  82 [ 554- 567] (0,1,0,785,R)         translated to 785  [PAGE FAULT -> frame 0, evicted S1:D0:P1]  lat=13
+  83 [ 567- 568] (0,0,0,440,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=1
+  84 [ 568- 583] (1,0,0,366,W)         translated to 3366  [PAGE FAULT -> frame 3, evicted S2:D1:P2]  lat=15
+  85 [ 583- 596] (2,0,0,119,R)         translated to 6119  [PAGE FAULT -> frame 6, evicted S2:D2:P1]  lat=13
+  86 [ 596- 601] (4,1,2,679,R)         SEGMENTATION FAULT: Invalid segment 4, max 2  lat=5
+  87 [ 601- 612] (0,0,1,23,R)          translated to 1023  [PAGE FAULT -> frame 1, evicted S2:D2:P2]  lat=11
+  88 [ 612- 616] (0,0,1,11,R)          translated to 1011  [hit, frame 1]  lat=4
+  89 [ 616- 631] (0,1,1,507,R)         translated to 4507  [PAGE FAULT -> frame 4, evicted S1:D1:P0]  lat=15
+  90 [ 631- 643] (1,1,3,852,R)         translated to 2852  [PAGE FAULT -> frame 2, evicted S1:D1:P1]  lat=12
+  91 [ 643- 648] (2,0,0,822,W)         translated to 6822  [hit, frame 6]  lat=5
+  92 [ 648- 653] (0,0,1,587,R)         translated to 1587  [hit, frame 1]  lat=5
+  93 [ 653- 658] (3,1,3,840,W)         SEGMENTATION FAULT: Invalid segment 3, max 2  lat=5
+  94 [ 658- 671] (2,0,2,729,R)         translated to 5729  [PAGE FAULT -> frame 5, evicted S1:D1:P2]  lat=13
+  95 [ 671- 674] (0,1,1,775,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=3
+  96 [ 674- 675] (2,0,0,420,R)         translated to 6420  [hit, frame 6]  lat=1
+  97 [ 675- 677] (1,0,0,16,W)          translated to 3016  [hit, frame 3]  lat=2
+  98 [ 677- 690] (0,0,0,259,R)         translated to 259  [PAGE FAULT -> frame 0, evicted S0:D1:P0]  lat=13
+  99 [ 690- 703] (2,0,1,746,R)         translated to 4746  [PAGE FAULT -> frame 4, evicted S0:D1:P1]  lat=13
+ 100 [ 703- 718] (2,2,1,425,W)         translated to 2425  [PAGE FAULT -> frame 2, evicted S1:D1:P3]  lat=15
+-------------------------------------------------------------
+Generated 72 in-range and 28 out-of-range addresses
+
+---------- Stress test summary ----------
+Translations requested : 100
+Successful             : 58  (58.0%)
+Faults / errors        : 42  (42.0%)
+    Segmentation faults   : 9
+    Directory faults      : 7
+    Limit violations      : 7
+    Offset faults         : 5
+    Protection violations : 14
+Page faults (serviced) : 41  (rate 41.0% of requests, 70.7% of valid references)
+Page replacements      : 40  (LRU)
+Page tables allocated  : 3 on demand
+Memory utilization     : 7/7 frames (100.0%)
+Average latency        : 7.18 units  (total 718)

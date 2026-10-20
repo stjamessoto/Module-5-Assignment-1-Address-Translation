@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------------------
+#  batch_addresses.txt - one logical address per line
+#  format: seg dir page offset access      (access: R/W or 0=read, 1=write)
+#  Built for sample_config.txt
+# ---------------------------------------------------------------------------
+1 0 2 250 R      # hit: seg 1 page 2 is in frame 6
+1 0 0 10 W       # hit, write to a RW page
+0 0 0 500 R      # hit: read code segment
+0 0 1 999 W      # protection violation: code segment is read-only
+1 0 3 0 W        # protection violation: page 3 of seg 1 is read-only
+2 1 2 40 W       # page fault: dir 1 allocated on demand, loaded into free frame 4
+1 1 3 100 R      # page fault with replacement (memory now full)
+5 0 0 0 R        # segmentation fault: no segment 5
+1 2 0 0 R        # directory fault: seg 1 has only dirs 0-1
+1 1 3 1200 R     # offset fault: page size is 1000
+0 1 2 0 R        # limit violation: seg 0 has 6 pages (dir 1 holds pages 0-1)
+2 0 1 777 R      # page fault -> replacement
+1 0 2 999 R      # hit: page 2 is still resident (recently used, so LRU kept it)
+this is not an address   # malformed line, skipped

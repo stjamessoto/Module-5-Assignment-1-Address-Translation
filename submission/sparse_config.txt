@@ -1,0 +1,13 @@
+# ---------------------------------------------------------------------------
+#  sparse_config.txt - shows where a two-level page table saves memory
+#  Segment 1 is a 1024-page (1 MB) heap/stack region that the program barely
+#  touches. Only the directories that are actually used get a page table.
+#  Run:  ./memory_simulator --config sparse_config.txt
+# ---------------------------------------------------------------------------
+frames 8
+page_size 1000
+pages_per_dir 32
+policy LRU
+
+0  0x1000  16    RO   0:RO 1:RO      # code: 16 pages, one directory entry
+1  0x2000  1024  RW                  # sparse heap+stack: 32 directory entries, none allocated

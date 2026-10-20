@@ -1,0 +1,8 @@
+build/
+memory_simulator
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.pdf
+*.o

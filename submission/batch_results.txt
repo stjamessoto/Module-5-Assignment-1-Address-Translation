@@ -1,0 +1,30 @@
+Batch file: batch_addresses.txt   (2026-10-19 21:35:50)
+(1,0,2,250,R)         translated to 6250  [hit, frame 6]  lat=3
+(1,0,0,10,W)          translated to 10  [hit, frame 0]  lat=3
+(0,0,0,500,R)         translated to 2500  [hit, frame 2]  lat=2
+(0,0,1,999,W)         PROTECTION VIOLATION: Cannot write to read-only segment 0  lat=5
+(1,0,3,0,W)           PROTECTION VIOLATION: Cannot write to read-only page 3 (segment 1, directory 0)  lat=2
+(2,1,2,40,W)          translated to 4040  [PAGE FAULT -> frame 4]  lat=11
+(1,1,3,100,R)         translated to 1100  [PAGE FAULT -> frame 1, evicted S2:D0:P0]  lat=11
+(5,0,0,0,R)           SEGMENTATION FAULT: Invalid segment 5, max 2  lat=5
+(1,2,0,0,R)           DIRECTORY FAULT: Invalid page directory 2 for segment 1, max 1  lat=1
+(1,1,3,1200,R)        OFFSET FAULT: Invalid offset 1200, max 999 (page size 1000)  lat=4
+(0,1,2,0,R)           LIMIT VIOLATION: Invalid page 2 in directory 1 of segment 0, max 1 (segment limit 6 pages)  lat=4
+(2,0,1,777,R)         translated to 3777  [PAGE FAULT -> frame 3, evicted S1:D1:P0]  lat=15
+(1,0,2,999,R)         translated to 6999  [hit, frame 6]  lat=1
+line 19: skipped ('this' is not a whole number)
+
+---------- Batch summary ----------
+Translations requested : 13
+Successful             : 7  (53.8%)
+Faults / errors        : 6  (46.2%)
+    Segmentation faults   : 1
+    Directory faults      : 1
+    Limit violations      : 1
+    Offset faults         : 1
+    Protection violations : 2
+Page faults (serviced) : 3  (rate 23.1% of requests, 42.9% of valid references)
+Page replacements      : 2  (LRU)
+Page tables allocated  : 1 on demand
+Memory utilization     : 7/7 frames (100.0%)
+Average latency        : 5.15 units  (total 67)

@@ -1,0 +1,7 @@
+# Touch the bottom of the heap and the top of the stack in segment 1.
+# format: seg dir page offset access
+0 0 0 100 R      # code
+1 0 0 0 W        # heap start   -> allocates page table for dir 0
+1 0 1 500 W      # heap
+1 31 31 999 W    # stack top    -> allocates page table for dir 31
+1 31 30 0 W      # stack

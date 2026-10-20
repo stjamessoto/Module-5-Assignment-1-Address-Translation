@@ -1,0 +1,15 @@
+# ---------------------------------------------------------------------------
+#  sample_config.txt - memory configuration for memory_simulator
+#  Run:  ./memory_simulator --config sample_config.txt
+# ---------------------------------------------------------------------------
+frames 7            # physical frames in the pool
+page_size 1000      # bytes per page / frame
+pages_per_dir 4     # entries in each second-level page table
+policy LRU          # FIFO or LRU
+
+# segID  base(page directory)  limit(pages)  protection  pages...
+# page token = <frame or ->:<RO|RW>    "-" means not present
+# Directories with no listed pages start unallocated (two-level saving).
+0  0x1000  6   RO   2:RO 5:RO -:RO -:RO                  # code  (dir 1 unallocated)
+1  0x2000  8   RW   0:RW -:RW 6:RW -:RO 3:RW -:RW         # data  (dirs 0 and 1)
+2  0x3000  12  RW   1:RW -:RW                            # stack (dirs 1 and 2 unallocated)
